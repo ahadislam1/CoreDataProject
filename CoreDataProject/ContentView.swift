@@ -13,6 +13,15 @@ import SwiftUI
  It means if we can conform hashable to our models then it'll value itself as struct.
  
  CoreData also creates sequential object identifiers so it doesn't break when objects have identical properties.
+ 
+ NSManaged is not property wrappers.
+ 
+ Always check if changes needed to be saved. ManagedObjectContext has a property just for that.
+ 
+ Example:
+ if self.moc.hasChanges {
+    try? self.moc.save()
+ }
  */
 struct Student: Hashable {
     let name: String
@@ -29,8 +38,29 @@ struct StudentView: View {
 }
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    
+    @FetchRequest(entity: Wizard.entity(), sortDescriptors: []) var wizards: FetchedResults<Wizard>
+    
     var body: some View {
-        Text("Hello World!")
+        VStack {
+            List(wizards, id: \.self) { wizard in
+                Text(wizard.name ?? "Unknown")
+            }
+            
+            Button("Add") {
+                let wizard = Wizard(context: self.moc)
+                wizard.name = "Harry Potter"
+            }
+            
+            Button("Save") {
+                do {
+                    try self.moc.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 

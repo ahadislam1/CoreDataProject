@@ -14,6 +14,8 @@
 		0B676E5924630CD100A25558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B676E5824630CD100A25558 /* Assets.xcassets */; };
 		0B676E5C24630CD100A25558 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B676E5B24630CD100A25558 /* Preview Assets.xcassets */; };
 		0B676E5F24630CD100A25558 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B676E5D24630CD100A25558 /* LaunchScreen.storyboard */; };
+		0B676E6824630F0100A25558 /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B676E6624630F0100A25558 /* Movie+CoreDataClass.swift */; };
+		0B676E6924630F0100A25558 /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B676E6724630F0100A25558 /* Movie+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		0B676E5B24630CD100A25558 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B676E5E24630CD100A25558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B676E6024630CD100A25558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B676E6624630F0100A25558 /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0B676E6724630F0100A25558 /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		0B676E4E24630CCD00A25558 /* CoreDataProject */ = {
 			isa = PBXGroup;
 			children = (
+				0B676E6624630F0100A25558 /* Movie+CoreDataClass.swift */,
+				0B676E6724630F0100A25558 /* Movie+CoreDataProperties.swift */,
 				0B676E4F24630CCD00A25558 /* AppDelegate.swift */,
 				0B676E5124630CCD00A25558 /* SceneDelegate.swift */,
 				0B676E5624630CCD00A25558 /* ContentView.swift */,
@@ -152,6 +158,8 @@
 				0B676E5024630CCD00A25558 /* AppDelegate.swift in Sources */,
 				0B676E5224630CCD00A25558 /* SceneDelegate.swift in Sources */,
 				0B676E5724630CCD00A25558 /* ContentView.swift in Sources */,
+				0B676E6824630F0100A25558 /* Movie+CoreDataClass.swift in Sources */,
+				0B676E6924630F0100A25558 /* Movie+CoreDataProperties.swift in Sources */,
 				0B676E5524630CCD00A25558 /* CoreDataProject.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
