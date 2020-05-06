@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 /**
  \.self means the whole object.
@@ -21,6 +22,17 @@ import SwiftUI
  Example:
  if self.moc.hasChanges {
     try? self.moc.save()
+ 
+ NSPredicate is a super strong filter
+ BEGINSWITH
+ CONTAINS
+ AND
+ ==
+ >
+ <
+ IN
+ NOT
+ super usefull I'll definite take a look at it.
  }
  */
 struct Student: Hashable {
@@ -37,7 +49,7 @@ struct StudentView: View {
     }
 }
 
-struct ContentView: View {
+struct WizardView: View {
     @Environment(\.managedObjectContext) var moc
     
     @FetchRequest(entity: Wizard.entity(), sortDescriptors: []) var wizards: FetchedResults<Wizard>
@@ -59,6 +71,39 @@ struct ContentView: View {
                 } catch {
                     print(error.localizedDescription)
                 }
+            }
+        }
+    }
+}
+
+struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Ship.entity(), sortDescriptors: [], predicate: NSPredicate(format: "universe == %@", "Star Wars")) var ships: FetchedResults<Ship>
+    
+    var body: some View {
+        VStack {
+            List(ships, id: \.self) {
+                Text($0.name ?? "Unknown name")
+            }
+            
+            Button("Add Examples") {
+                let ship1 = Ship(context: self.moc)
+                ship1.name = "Enterprise"
+                ship1.universe = "Star Trek"
+
+                let ship2 = Ship(context: self.moc)
+                ship2.name = "Defiant"
+                ship2.universe = "Star Trek"
+
+                let ship3 = Ship(context: self.moc)
+                ship3.name = "Millennium Falcon"
+                ship3.universe = "Star Wars"
+
+                let ship4 = Ship(context: self.moc)
+                ship4.name = "Executor"
+                ship4.universe = "Star Wars"
+                
+                try? self.moc.save()
             }
         }
     }
